@@ -14,7 +14,7 @@ import * as fs from 'fs';
 import * as glob from 'glob';
 import * as path from 'path';
 
-import {generateDeclarations, Config} from '../gen-ts';
+import {Config, generateDeclarations} from '../gen-ts';
 
 const fixtures = path.join(__dirname, '..', '..', 'src', 'test', 'fixtures');
 const goldens = path.join(__dirname, '..', '..', 'src', 'test', 'goldens');

@@ -930,8 +930,8 @@ export function extractPropertiesFromClass(
         description: prop.description || existing.description,
         privacy: prop.privacy || existing.privacy,
         warnings: prop.warnings,
-        readOnly: prop.readOnly === undefined ?
-          existing.readOnly : prop.readOnly
+        readOnly: prop.readOnly === undefined ? existing.readOnly :
+                                                prop.readOnly
       });
     }
   }

@@ -290,7 +290,7 @@ function loadDeps(
 
     // We have a dependency on a real module.
     const dependency =
-      getModule(resolveUrl(module.urlBase, depSpec), module.crossorigin);
+        getModule(resolveUrl(module.urlBase, depSpec), module.crossorigin);
     args.push(dependency.exports);
     depModules.push(dependency);
 
@@ -454,7 +454,8 @@ window.define = function(deps: string[], moduleBody?: OnExecutedCallback) {
   // support the crossorigin attribute nor currentScript, so it will use the
   // default.
   const crossorigin = document.currentScript &&
-      document.currentScript.getAttribute('crossorigin') || 'anonymous';
+          document.currentScript.getAttribute('crossorigin') ||
+      'anonymous';
 
   setTimeout(() => {
     if (defined === false) {

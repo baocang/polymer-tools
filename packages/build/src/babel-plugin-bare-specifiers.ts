@@ -46,12 +46,12 @@ export const resolveBareSpecifiers = (
             }
             const specifier = specifierArg.value;
             specifierArg.value = maybeResolve(
-              specifier,
-              filePath,
-              isComponentRequest,
-              packageName,
-              componentDir,
-              rootDir);
+                specifier,
+                filePath,
+                isComponentRequest,
+                packageName,
+                componentDir,
+                rootDir);
           }
         }
       });

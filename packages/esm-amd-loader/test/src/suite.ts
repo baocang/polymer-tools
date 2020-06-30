@@ -60,7 +60,8 @@ window.checkExecuted = (key) => {
   if (window.executed[key]) {
     throw new Error('already executed: ' + key);
   }
-  // Note: IE11 doesn't support document.currentScript so just set mark as excuted.
+  // Note: IE11 doesn't support document.currentScript so just set mark as
+  // excuted.
   window.executed[key] = document.currentScript as HTMLScriptElement || true;
 };
 
@@ -502,7 +503,8 @@ suite('crossorigin attribute', () => {
   function assertCrossoriginAttribute(crossorigin: string|null) {
     const moduleCurrentScript = window.executed['y'];
     if (moduleCurrentScript instanceof HTMLScriptElement) {
-      assert.equal(moduleCurrentScript.getAttribute('crossorigin'), crossorigin);
+      assert.equal(
+          moduleCurrentScript.getAttribute('crossorigin'), crossorigin);
     }
   }
 
@@ -513,16 +515,18 @@ suite('crossorigin attribute', () => {
     });
   });
 
-  test('modules with empty crossorigin attribute default to anonymous', (done) => {
-    const script = document.createElement('script');
-    script.setAttribute('crossorigin', '');
-    script.textContent = 'define(["./y.js"])';
-    document.head!.appendChild(script);
-    define(['./y.js'], () => {
-      assertCrossoriginAttribute('anonymous');
-      done();
-    });
-  });
+  test(
+      'modules with empty crossorigin attribute default to anonymous',
+      (done) => {
+        const script = document.createElement('script');
+        script.setAttribute('crossorigin', '');
+        script.textContent = 'define(["./y.js"])';
+        document.head!.appendChild(script);
+        define(['./y.js'], () => {
+          assertCrossoriginAttribute('anonymous');
+          done();
+        });
+      });
 
   test('modules with crossorigin=use-credentials attribute', (done) => {
     const script = document.createElement('script');

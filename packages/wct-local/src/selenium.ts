@@ -65,7 +65,8 @@ export async function installAndStartSeleniumServer(
 
 async function seleniumStart(
     wct: wct.Context,
-    opts: {args: string[], javaArgs: string[], install: boolean}): Promise<number> {
+    opts: {args: string[], javaArgs: string[], install: boolean}):
+    Promise<number> {
   const port = await promisify(freeport)();
 
   // See below.

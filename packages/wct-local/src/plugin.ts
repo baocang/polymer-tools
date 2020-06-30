@@ -92,7 +92,8 @@ const plugin: wct.PluginInterface =
         if (pluginOptions.skipSeleniumInstall) {
           start = selenium.startSeleniumServer;
         }
-        const port = await start(wct, pluginOptions.seleniumArgs, pluginOptions.javaArgs);
+        const port = await start(
+            wct, pluginOptions.seleniumArgs, pluginOptions.javaArgs);
         updatePort(eachCapabilities, port);
       };
       wct.hook('prepare', function(done: (err?: unknown) => void) {
