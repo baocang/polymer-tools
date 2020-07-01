@@ -134,8 +134,13 @@ export class JsTransform extends GenericOptimizeTransform {
 
     const shouldMinifyFile =
         jsOptions.minify ? notExcluded(jsOptions.minify) : () => false;
+    const shouldCompileFile =
+        jsOptions.compile ? notExcluded(jsOptions.compile) : () => false;
 
     const transformer = (content: string, file: File) => {
+      if (!shouldCompileFile(file)) {
+        return content;
+      }
       let transformModulesToAmd: boolean|'auto' = false;
 
       if (jsOptions.transformModulesToAmd) {
