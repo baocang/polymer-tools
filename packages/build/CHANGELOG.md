@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   (https://github.com/Polymer/tools/pull/727).
 <!-- Add new, unreleased changes here. -->
 
+## [3.1.6] - 2021-02-07
+* Fixed an issue where html splitted javascript files not transformed.
+
 ## [3.1.5] - 2021-02-07
 * Do not compile excluded javascript.
 * Delete comments for the compiled code.
