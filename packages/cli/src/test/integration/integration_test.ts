@@ -18,7 +18,7 @@ import {runCommand} from './run-command';
 import {createElementGenerator} from '../../init/element/element';
 import {createGithubGenerator} from '../../init/github';
 import * as puppeteer from 'puppeteer';
-import {startServers, ServerOptions} from 'polyserve';
+import {startServers, ServerOptions} from '@polymer-tools/polyserve';
 import {ProjectConfig, ProjectOptions} from 'polymer-project-config';
 import * as tempMod from 'temp';
 import * as fs from 'fs';

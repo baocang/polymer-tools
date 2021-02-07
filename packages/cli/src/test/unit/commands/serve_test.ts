@@ -9,7 +9,7 @@
  */
 
 import {assert} from 'chai';
-import * as polyserve from 'polyserve';
+import * as polyserve from '@polymer-tools/polyserve';
 import * as sinon from 'sinon';
 
 import {PolymerCli} from '../../../polymer-cli';

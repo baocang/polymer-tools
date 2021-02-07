@@ -10,7 +10,7 @@
 
 import {assert} from 'chai';
 import * as sinon from 'sinon';
-import * as wct from 'web-component-tester';
+import * as wct from '@polymer-tools/web-component-tester';
 
 import {PolymerCli} from '../../../polymer-cli';
 

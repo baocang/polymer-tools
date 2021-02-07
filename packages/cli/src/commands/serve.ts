@@ -17,8 +17,8 @@
 
 import * as logging from 'plylog';
 import {ProjectConfig} from 'polymer-project-config';
-import {args as polyserveArgs} from 'polyserve/lib/args';
-import {ServerOptions} from 'polyserve/lib/start_server';
+import {args as polyserveArgs} from '@polymer-tools/polyserve/lib/args';
+import {ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 
 import {Environment} from '../environment/environment';
 
@@ -36,7 +36,7 @@ export class ServeCommand implements Command {
 
   async run(options: CommandOptions, config: ProjectConfig) {
     // Defer dependency loading until this specific command is run
-    const polyserve = await import('polyserve');
+    const polyserve = await import('@polymer-tools/polyserve');
     const startServers = polyserve.startServers;
     const getServerUrls = polyserve.getServerUrls;
     const url = await import('url');

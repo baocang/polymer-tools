@@ -18,7 +18,7 @@ import * as express from 'express';
 import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
-import {MainlineServer, PolyserveServer, RequestHandler, ServerOptions, startServers, VariantServer} from 'polyserve';
+import {MainlineServer, PolyserveServer, RequestHandler, ServerOptions, startServers, VariantServer} from '@polymer-tools/polyserve';
 import * as resolve from 'resolve';
 import * as semver from 'semver';
 import * as send from 'send';

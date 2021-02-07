@@ -16,7 +16,7 @@ var path = require('path');
 
 process.title = 'polyserve';
 
-resolve('polyserve', {basedir: process.cwd()}, function(error, libpath) {
+resolve('@polymer-tools/polyserve', {basedir: process.cwd()}, function(error, libpath) {
   var clipath = libpath ? path.resolve(libpath, '../cli') : '../lib/cli';
   var cli = require(clipath);
   cli.run(process.argv)

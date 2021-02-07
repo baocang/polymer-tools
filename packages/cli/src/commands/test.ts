@@ -138,7 +138,7 @@ export class TestCommand implements Command {
   ];
 
   async run(_options: CommandOptions, config: ProjectConfig): Promise<void> {
-    const wct = await import('web-component-tester');
+    const wct = await import('@polymer-tools/web-component-tester');
 
     const wctArgs = process.argv.slice(3);
 

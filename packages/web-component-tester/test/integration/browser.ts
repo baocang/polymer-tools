@@ -17,7 +17,7 @@ import * as fs from 'fs';
 import * as lodash from 'lodash';
 import * as path from 'path';
 
-import {ExpressAppMapper, ServerOptions} from 'polyserve/lib/start_server';
+import {ExpressAppMapper, ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 import {BrowserDef, Stats} from '../../runner/browserrunner';
 import {CompletedState, TestEndData} from '../../runner/clireporter';
 import * as config from '../../runner/config';

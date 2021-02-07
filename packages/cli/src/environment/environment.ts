@@ -12,7 +12,7 @@
  * http://polymer.github.io/PATENTS.txt
  */
 import {ProjectBuildOptions, ProjectConfig} from 'polymer-project-config';
-import {ServerOptions} from 'polyserve/lib/start_server';
+import {ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 
 export interface Environment {
   serve(options: ServerOptions): Promise<void>;

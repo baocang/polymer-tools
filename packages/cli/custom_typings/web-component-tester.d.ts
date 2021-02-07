@@ -1,4 +1,4 @@
-declare module 'web-component-tester' {
+declare module '@polymer-tools/web-component-tester' {
   module wct {
     interface CLI {
       // TODO(justinfagnani): how do you import an interface into a .d.ts file?

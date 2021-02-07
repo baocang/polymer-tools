@@ -18,13 +18,13 @@ import * as logging from 'plylog';
 import {dest} from 'vinyl-fs';
 
 import mergeStream = require('merge-stream');
-import {forkStream, PolymerProject, addServiceWorker, SWConfig, HtmlSplitter} from 'polymer-build';
+import {forkStream, PolymerProject, addServiceWorker, SWConfig, HtmlSplitter} from '@polymer-tools/build';
 
-import {getOptimizeStreams} from 'polymer-build';
+import {getOptimizeStreams} from '@polymer-tools/build';
 import {ProjectBuildOptions} from 'polymer-project-config';
 import {waitFor, pipeStreams} from './streams';
 import {loadServiceWorkerConfig} from './load-config';
-import {LocalFsPath} from 'polymer-build/lib/path-transformers';
+import {LocalFsPath} from '@polymer-tools/build/lib/path-transformers';
 
 const logger = logging.getLogger('cli.build.build');
 export const mainBuildDirectoryName = 'build';

@@ -18,7 +18,7 @@ import {Request, RequestHandler, Response} from 'express';
 import * as fs from 'fs';
 import * as LRU from 'lru-cache';
 import * as path from 'path';
-import {htmlTransform, jsTransform} from 'polymer-build';
+import {htmlTransform, jsTransform} from '@polymer-tools/build';
 
 import {getCompileTarget} from './get-compile-target';
 import {transformResponse} from './transform-middleware';

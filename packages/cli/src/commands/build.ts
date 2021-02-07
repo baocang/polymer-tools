@@ -168,7 +168,7 @@ export class BuildCommand implements Command {
     // Defer dependency loading until this specific command is run
     const del = await import('del');
     const buildLib = await import('../build/build');
-    const polymerBuild = await import('polymer-build');
+    const polymerBuild = await import('@polymer-tools/build');
     const path = await import('path');
     let build = buildLib.build;
     const mainBuildDirectoryName = buildLib.mainBuildDirectoryName;
