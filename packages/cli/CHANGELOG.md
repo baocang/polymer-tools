@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- ## Unreleased -->
 <!-- Add new, unreleased changes here. -->
 
+## [v1.9.12] - 2021-02-07
+* Updated `polymer-build` to latest version to avoid compile excluded javascript files,
+  and delete comments for the compiled code.
+
 ## v1.9.11 [07-09-2019]
 * Added `--allow-origin` flag support for `polymer serve`.
 

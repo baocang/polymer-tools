@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   (https://github.com/Polymer/tools/pull/727).
 <!-- Add new, unreleased changes here. -->
 
+## [3.1.5] - 2021-02-07
+* Do not compile excluded javascript.
+* Delete comments for the compiled code.
+
 ## [3.1.4] - 2019-04-26
 * Fixed an issue where bare specifiers were not rewritten for dynamic imports after transforming them to AMD require statements.
 
