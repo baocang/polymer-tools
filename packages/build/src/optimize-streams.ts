@@ -138,7 +138,7 @@ export class JsTransform extends GenericOptimizeTransform {
         jsOptions.compile ? notExcluded(jsOptions.compile) : () => false;
 
     const transformer = (content: string, file: File) => {
-      if (!shouldCompileFile(file)) {
+      if (!shouldCompileFile(file) && !isHtmlSplitterFile(file) ) {
         return content;
       }
       let transformModulesToAmd: boolean|'auto' = false;
