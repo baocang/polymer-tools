@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- ## Unreleased -->
 <!-- Add new, unreleased items here. -->
 
+## [0.27.16] (2018-05-08)
+* Updated @polymer-tools/build to 3.1.6.
+
 ## [0.27.15] (2019-01-10)
 * Add `--allow-origin` flag which sets the `Access-Control-Allow-Origin` header.
 
