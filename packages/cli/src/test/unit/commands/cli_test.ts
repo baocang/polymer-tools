@@ -11,7 +11,7 @@
 
 import {assert} from 'chai';
 import * as path from 'path';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import * as sinon from 'sinon';
 
 import {PolymerCli} from '../../../polymer-cli';

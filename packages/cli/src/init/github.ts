@@ -11,7 +11,7 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import Generator = require('yeoman-generator');
 
 import {Github} from '../github/github';

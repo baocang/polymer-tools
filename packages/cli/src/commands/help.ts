@@ -17,7 +17,7 @@
 
 import chalk from 'chalk';
 import * as commandLineUsage from 'command-line-usage';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import {ProjectConfig} from 'polymer-project-config';
 
 import {globalArguments} from '../args';

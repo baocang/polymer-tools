@@ -5,7 +5,7 @@ import crypto = require('crypto');
 
 import File = require('vinyl');
 
-import logging = require('plylog');
+import logging = require('@polymer-tools/plylog');
 
 
 const logger = logging.getLogger('cli.build.cache');
@@ -63,7 +63,7 @@ export function readFileFromCache(file: File): File|null {
     return null;
   }
 
-  logger.info('read cache: ', cacheFileName);
+  logger.debug('read cache: ', cacheFileName);
 
   return new File({
     cwd: fileCwd,
@@ -71,6 +71,26 @@ export function readFileFromCache(file: File): File|null {
     path: filePath,
     contents: fileContents,
   });
+}
+
+export function writeFileToCache(file: File, orgFileContents: Buffer) {
+  if (!cacheDir) {
+    prepCacheDir();
+  }
+
+  const fileCwd = file.cwd;
+  const filePath = file.path;
+  const sourceDigest = sha1(orgFileContents);
+  const relativeFileName = getCachePath(filePath, fileCwd);
+  const cacheFilePath = path.join(cacheDir, relativeFileName);
+  const fileExt = relativeFileName.substr(relativeFileName.lastIndexOf('.'));
+  const cacheFileName = path.join(cacheFilePath, sourceDigest + fileExt);
+
+  if (!fs.existsSync(cacheFileName)) {
+    fs.mkdirSync(cacheFilePath, {recursive: true});
+    logger.debug('cache file', cacheFileName);
+    fs.writeFileSync(cacheFileName, file.contents);
+  }
 }
 
 export function writeContentToCache(file: File, contents: string) {
@@ -88,7 +108,7 @@ export function writeContentToCache(file: File, contents: string) {
 
   if (!fs.existsSync(cacheFileName)) {
     fs.mkdirSync(cacheFilePath, {recursive: true});
-    logger.info('write cache: ', cacheFileName);
+    logger.debug('write cache: ', cacheFileName);
     fs.writeFileSync(cacheFileName, contents);
   }
 }

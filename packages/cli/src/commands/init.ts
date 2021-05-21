@@ -16,7 +16,7 @@
 // in the run method in order to minimize startup time from loading unused code.
 
 import {ArgDescriptor} from 'command-line-args';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import {ProjectConfig} from 'polymer-project-config';
 
 import {Command, CommandOptions} from './command';

@@ -15,7 +15,7 @@
 
 import {SWConfig} from '@polymer-tools/build';
 import * as fs from 'fs';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 
 const logger = logging.getLogger('cli.build.load-config');
 

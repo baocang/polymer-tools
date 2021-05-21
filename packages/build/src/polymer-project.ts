@@ -12,7 +12,7 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import {PackageRelativeUrl} from 'polymer-analyzer';
 import {ProjectConfig, ProjectOptions} from 'polymer-project-config';
 import {src as vinylSrc} from 'vinyl-fs';

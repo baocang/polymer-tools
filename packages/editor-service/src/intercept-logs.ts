@@ -27,7 +27,7 @@
  * the class of bug that this fixes.
  */
 
-import * as plylog from 'plylog';
+import * as plylog from '@polymer-tools/plylog';
 import * as util from 'util';
 import {RemoteConsole} from 'vscode-languageserver';
 import * as Transport from 'winston-transport';

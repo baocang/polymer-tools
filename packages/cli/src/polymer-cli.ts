@@ -17,7 +17,7 @@
 
 import * as commandLineArgs from 'command-line-args';
 import {sep as pathSeperator} from 'path';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import {ProjectConfig, ProjectOptions} from 'polymer-project-config';
 
 import {globalArguments, mergeArguments} from './args';

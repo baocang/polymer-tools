@@ -16,7 +16,7 @@ import chalk from 'chalk';
 import * as chokidar from 'chokidar';
 import * as fs from 'mz/fs';
 import * as path from 'path';
-import * as logging from 'plylog';
+import * as logging from '@polymer-tools/plylog';
 import {Analysis, Analyzer, applyEdits, Edit, EditAction, FsUrlLoader, makeParseLoader, ResolvedUrl, Severity, UrlResolver, Warning} from 'polymer-analyzer';
 import {WarningFilter} from 'polymer-analyzer/lib/warning/warning-filter';
 import {WarningPrinter} from 'polymer-analyzer/lib/warning/warning-printer';
