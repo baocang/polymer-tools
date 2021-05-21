@@ -12,9 +12,9 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import * as cssSlam from 'css-slam';
 import * as gulpif from 'gulp-if';
-import * as logging from '@polymer-tools/plylog';
 import {JsCompileTarget, ModuleResolutionStrategy} from 'polymer-project-config';
 import {Transform} from 'stream';
 import * as vinyl from 'vinyl';

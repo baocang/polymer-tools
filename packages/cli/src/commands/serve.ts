@@ -15,9 +15,9 @@
 // Be careful with these imports. As many as possible should be dynamic imports
 // in the run method in order to minimize startup time from loading unused code.
 
+import * as logging from '@polymer-tools/plylog';
 import {args as polyserveArgs} from '@polymer-tools/polyserve/lib/args';
 import {ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
-import * as logging from '@polymer-tools/plylog';
 import {ProjectConfig} from 'polymer-project-config';
 
 import {Environment} from '../environment/environment';

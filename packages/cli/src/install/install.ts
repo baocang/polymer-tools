@@ -12,11 +12,11 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import * as bower from 'bower';
 import {read as readBowerJson} from 'bower-json';
 import * as child_process from 'child_process';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
 
 import defaultBowerConfig = require('bower/lib/config');
 import BowerLogger = require('bower-logger');

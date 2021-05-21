@@ -14,10 +14,10 @@
 
 /// <reference path="../custom_typings/sw-precache.d.ts" />
 
+import * as logging from '@polymer-tools/plylog';
 import * as assert from 'assert';
 import {writeFile} from 'fs';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
 import {generate as swPrecacheGenerate, SWConfig} from 'sw-precache';
 
 import {DepsIndex} from './analyzer';

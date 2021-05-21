@@ -12,9 +12,9 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import * as bower from 'bower';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
 import {dest} from 'vinyl-fs';
 
 import mergeStream = require('merge-stream');

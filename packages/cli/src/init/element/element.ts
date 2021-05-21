@@ -11,9 +11,10 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import chalk from 'chalk';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
+
 import Generator = require('yeoman-generator');
 import validateElementName = require('validate-element-name');
 

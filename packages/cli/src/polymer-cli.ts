@@ -15,9 +15,9 @@
 // Be mindful of adding imports here, as this is on the hot path of all
 // commands.
 
+import * as logging from '@polymer-tools/plylog';
 import * as commandLineArgs from 'command-line-args';
 import {sep as pathSeperator} from 'path';
-import * as logging from '@polymer-tools/plylog';
 import {ProjectConfig, ProjectOptions} from 'polymer-project-config';
 
 import {globalArguments, mergeArguments} from './args';

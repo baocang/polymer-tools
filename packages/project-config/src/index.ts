@@ -12,12 +12,14 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import * as assert from 'assert';
 import * as fs from 'fs';
 import * as jsonschema from 'jsonschema';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
+
 import {applyBuildPreset, isValidPreset, ProjectBuildOptions} from './builds';
+
 import minimatchAll = require('minimatch-all');
 import {FsUrlLoader, PackageUrlResolver, WarningFilter, Analyzer, Severity} from 'polymer-analyzer';
 

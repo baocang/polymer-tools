@@ -9,9 +9,9 @@
  * rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import {assert} from 'chai';
 import * as path from 'path';
-import * as logging from '@polymer-tools/plylog';
 import * as sinon from 'sinon';
 
 import {PolymerCli} from '../../../polymer-cli';

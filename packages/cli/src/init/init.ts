@@ -12,9 +12,9 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import * as logging from '@polymer-tools/plylog';
 import chalk from 'chalk';
 import * as fs from 'fs';
-import * as logging from '@polymer-tools/plylog';
 
 import findup = require('findup-sync');
 import * as YeomanEnvironment from 'yeoman-environment';
