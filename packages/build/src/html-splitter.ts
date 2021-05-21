@@ -19,6 +19,8 @@ import * as osPath from 'path';
 import {Transform} from 'stream';
 import File = require('vinyl');
 import {AsyncTransformStream, getFileContents} from './streams';
+import {readFileFromCache, writeContentToCache} from './cache-util';
+
 
 const pred = dom5.predicates;
 
@@ -267,6 +269,18 @@ class HtmlRejoinTransform extends AsyncTransformStream<File, File> {
       throw new Error(`Internal error: no vinylFile found for splitfile: ${
           splitFile.path}`);
     }
+
+    const cachedFile = readFileFromCache(file);
+
+    if (cachedFile != null && cachedFile.path) {
+      return new File({
+        cwd: file.cwd,
+        base: file.base,
+        path: osPath.normalize(file.path),
+        contents: cachedFile.contents,
+      });
+    }
+
     const filePath = osPath.normalize(file.path);
     const contents = await getFileContents(file);
     const doc = parse5.parse(contents, {locationInfo: true});
@@ -286,6 +300,8 @@ class HtmlRejoinTransform extends AsyncTransformStream<File, File> {
     }
 
     const joinedContents = parse5.serialize(doc);
+
+    writeContentToCache(file, joinedContents);
 
     return new File({
       cwd: file.cwd,

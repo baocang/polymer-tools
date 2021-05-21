@@ -25,6 +25,8 @@ import {jsTransform} from './js-transform';
 import {htmlTransform} from './html-transform';
 import {isHtmlSplitterFile} from './html-splitter';
 
+import {readFileFromCache, writeContentToCache} from './cache-util';
+
 // TODO(fks) 09-22-2016: Latest npm type declaration resolves to a non-module
 // entity. Upgrade to proper JS import once compatible .d.ts file is released,
 // or consider writing a custom declaration in the `custom_typings/` folder.
@@ -141,6 +143,13 @@ export class JsTransform extends GenericOptimizeTransform {
       if (!shouldCompileFile(file) && !isHtmlSplitterFile(file)) {
         return content;
       }
+
+      const cachedFile = readFileFromCache(file);
+
+      if (cachedFile != null && cachedFile.path) {
+        return cachedFile.contents!.toString();
+      }
+
       let transformModulesToAmd: boolean|'auto' = false;
 
       if (jsOptions.transformModulesToAmd) {
@@ -155,7 +164,7 @@ export class JsTransform extends GenericOptimizeTransform {
         }
       }
 
-      return jsTransform(content, {
+      const result = jsTransform(content, {
         compile: getCompileTarget(file, jsOptions),
         externalHelpers: true,
         minify: shouldMinifyFile(file),
@@ -164,6 +173,10 @@ export class JsTransform extends GenericOptimizeTransform {
         rootDir: options.rootDir,
         transformModulesToAmd,
       });
+
+      writeContentToCache(file, result);
+
+      return result;
     };
 
     super('js-transform', transformer);
