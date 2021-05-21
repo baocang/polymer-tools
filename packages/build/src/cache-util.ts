@@ -27,7 +27,12 @@ function prepCacheDir() {
 }
 
 function getCachePath(filePath: string, fileCwd: string) {
-  let relativeFileName = filePath.substr(fileCwd.lastIndexOf(path.sep));
+  const lastSepIndex = (fileCwd || '').lastIndexOf(path.sep);
+  let relativeFileName = filePath;
+
+  if (filePath.startsWith(fileCwd)) {
+    relativeFileName = filePath.substr(Math.max(0, lastSepIndex));
+  }
 
   if (/_script_\d+\.js$/.test(relativeFileName)) {
     relativeFileName = path.join(
