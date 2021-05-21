@@ -12,13 +12,13 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import {htmlTransform, jsTransform} from '@polymer-tools/build';
 import {browserCapabilities} from 'browser-capabilities';
 import {parse as parseContentType} from 'content-type';
 import {Request, RequestHandler, Response} from 'express';
 import * as fs from 'fs';
 import * as LRU from 'lru-cache';
 import * as path from 'path';
-import {htmlTransform, jsTransform} from '@polymer-tools/build';
 
 import {getCompileTarget} from './get-compile-target';
 import {transformResponse} from './transform-middleware';

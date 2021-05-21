@@ -8,9 +8,9 @@
  * rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+import * as wct from '@polymer-tools/web-component-tester';
 import {assert} from 'chai';
 import * as sinon from 'sinon';
-import * as wct from '@polymer-tools/web-component-tester';
 
 import {PolymerCli} from '../../../polymer-cli';
 

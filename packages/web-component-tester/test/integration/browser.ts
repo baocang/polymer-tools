@@ -11,18 +11,19 @@
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
+import {ExpressAppMapper, ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 import {expect} from 'chai';
 import * as express from 'express';
 import * as fs from 'fs';
 import * as lodash from 'lodash';
 import * as path from 'path';
 
-import {ExpressAppMapper, ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 import {BrowserDef, Stats} from '../../runner/browserrunner';
 import {CompletedState, TestEndData} from '../../runner/clireporter';
 import * as config from '../../runner/config';
 import {Context} from '../../runner/context';
 import {test} from '../../runner/test';
+
 import {makeProperTestDir} from './setup_test_dir';
 
 function parseList(stringList?: string): string[] {

@@ -12,12 +12,12 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import {LocalFsPath, urlFromPath} from '@polymer-tools/build/lib/path-transformers';
 import * as assert from 'assert';
 import * as escapeHtml from 'escape-html';
 import * as express from 'express';
 import * as fs from 'mz/fs';
 import * as path from 'path';
-import {LocalFsPath, urlFromPath} from '@polymer-tools/build/lib/path-transformers';
 import * as send from 'send';
 // TODO: Switch to node-http2 when compatible with express
 // https://github.com/molnarg/node-http2/issues/100

@@ -8,8 +8,8 @@
  * rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import {assert} from 'chai';
 import * as polyserve from '@polymer-tools/polyserve';
+import {assert} from 'chai';
 import * as sinon from 'sinon';
 
 import {PolymerCli} from '../../../polymer-cli';

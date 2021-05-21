@@ -12,10 +12,10 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import {addCustomElementsEs5Adapter} from '@polymer-tools/build';
 import {browserCapabilities} from 'browser-capabilities';
 import {parse as parseContentType} from 'content-type';
 import {Request, RequestHandler, Response} from 'express';
-import {addCustomElementsEs5Adapter} from '@polymer-tools/build';
 
 import {getCompileTarget} from './get-compile-target';
 import {transformResponse} from './transform-middleware';

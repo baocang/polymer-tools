@@ -12,13 +12,13 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import {MainlineServer, PolyserveServer, RequestHandler, ServerOptions, startServers, VariantServer} from '@polymer-tools/polyserve';
 import * as bowerConfig from 'bower-config';
 import * as cleankill from 'cleankill';
 import * as express from 'express';
 import * as fs from 'fs';
 import * as _ from 'lodash';
 import * as path from 'path';
-import {MainlineServer, PolyserveServer, RequestHandler, ServerOptions, startServers, VariantServer} from '@polymer-tools/polyserve';
 import * as resolve from 'resolve';
 import * as semver from 'semver';
 import * as send from 'send';

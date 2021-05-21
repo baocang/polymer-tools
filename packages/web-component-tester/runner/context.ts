@@ -12,10 +12,10 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
+import {ExpressAppMapper, ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 import * as events from 'events';
 import * as express from 'express';
 import * as _ from 'lodash';
-import {ExpressAppMapper, ServerOptions} from '@polymer-tools/polyserve/lib/start_server';
 import * as socketIO from 'socket.io';
 import * as http from 'spdy';
 import * as util from 'util';
