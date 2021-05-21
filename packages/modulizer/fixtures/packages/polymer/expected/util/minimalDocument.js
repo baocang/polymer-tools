@@ -65,7 +65,7 @@ class MinimalDocTransform extends Transform {
 
     dom5.nodeWalkAll(doc, isBlankNode).forEach((t) => dom5.remove(t));
 
-    file.contents = new Buffer(parse5.serialize(doc));
+    file.contents = Buffer.from(parse5.serialize(doc));
 
     cb(null, file);
   }

@@ -56,7 +56,7 @@ class BackfillStream extends Transform {
       this.fileList.forEach((oldFile) => {
         // console.log(`pumping fake file ${oldFile.path}`)
         let newFile = oldFile.clone({deep: true, contents: false});
-        newFile.contents = new Buffer('');
+        newFile.contents = Buffer.from('');
         this.push(newFile);
       });
     }

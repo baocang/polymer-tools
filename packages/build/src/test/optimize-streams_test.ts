@@ -33,7 +33,7 @@ function createFakeFileStream(files: FakeFile[]) {
   srcStream._read = function() {
     for (const file of files) {
       this.push(new Vinyl({
-        contents: new Buffer(file.contents),
+        contents: Buffer.from(file.contents),
         cwd: file.cwd,
         base: file.base,
         path: file.path
