@@ -272,7 +272,7 @@ class HtmlRejoinTransform extends AsyncTransformStream<File, File> {
 
     const cachedFile = readFileFromCache(file);
 
-    if (cachedFile != null && cachedFile.path) {
+    if (cachedFile && cachedFile.path) {
       return new File({
         cwd: file.cwd,
         base: file.base,

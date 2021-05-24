@@ -44,7 +44,7 @@ function getCachePath(filePath: string, fileCwd: string) {
   return relativeFileName;
 }
 
-export function readFileFromCache(file: File): File|null {
+export function readFileFromCache(file: File): File|undefined {
   if (!cacheDir) {
     prepCacheDir();
   }
@@ -58,17 +58,17 @@ export function readFileFromCache(file: File): File|null {
   const fileExt = relativeFileName.substr(relativeFileName.lastIndexOf('.'));
   const cacheFileName = path.join(cacheFilePath, sourceDigest + fileExt);
 
-  let fileContents: Buffer|null = null;
-
-  if (fs.existsSync(cacheFileName)) {
-    fileContents = fs.readFileSync(cacheFileName);
+  if (!fs.existsSync(cacheFileName)) {
+    return undefined;
   }
 
-  if (fileContents === null || fileContents.length === 0) {
-    return null;
+  const fileContents = fs.readFileSync(cacheFileName);
+
+  if (!fileContents || fileContents.length === 0) {
+    return undefined;
   }
 
-  logger.debug('read cache: ', cacheFileName);
+  logger.debug('cached file: ', cacheFileName);
 
   return new File({
     cwd: fileCwd,
@@ -78,34 +78,14 @@ export function readFileFromCache(file: File): File|null {
   });
 }
 
-export function writeFileToCache(file: File, orgFileContents: Buffer) {
+export function writeContentToCache(srcFile: File, contents: string) {
   if (!cacheDir) {
     prepCacheDir();
   }
 
-  const fileCwd = file.cwd;
-  const filePath = file.path;
-  const sourceDigest = sha1(orgFileContents);
-  const relativeFileName = getCachePath(filePath, fileCwd);
-  const cacheFilePath = path.join(cacheDir, relativeFileName);
-  const fileExt = relativeFileName.substr(relativeFileName.lastIndexOf('.'));
-  const cacheFileName = path.join(cacheFilePath, sourceDigest + fileExt);
-
-  if (!fs.existsSync(cacheFileName)) {
-    fs.mkdirSync(cacheFilePath, {recursive: true});
-    logger.debug('cache file', cacheFileName);
-    fs.writeFileSync(cacheFileName, file.contents);
-  }
-}
-
-export function writeContentToCache(file: File, contents: string) {
-  if (!cacheDir) {
-    prepCacheDir();
-  }
-
-  const fileCwd = file.cwd;
-  const filePath = file.path;
-  const sourceDigest = sha1(file.contents as Buffer);
+  const fileCwd = srcFile.cwd;
+  const filePath = srcFile.path;
+  const sourceDigest = sha1(srcFile.contents as Buffer);
   const relativeFileName = getCachePath(filePath, fileCwd);
   const cacheFilePath = path.join(cacheDir, relativeFileName);
   const fileExt = relativeFileName.substr(relativeFileName.lastIndexOf('.'));

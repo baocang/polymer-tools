@@ -92,18 +92,34 @@ export class GenericOptimizeTransform extends Transform {
       return;
     }
 
+    let destFile = file;
+
     if (file.contents) {
+      const cachedFile = readFileFromCache(file);
+
+      if (cachedFile && cachedFile.path) {
+        callback(undefined, cachedFile);
+        return;
+      }
+
       try {
         let contents = file.contents.toString();
         contents = this.optimizer(contents, file);
-        file.contents = Buffer.from(contents);
+        destFile = new File({
+          cwd: file.cwd,
+          base: file.base,
+          path: file.path,
+          contents: Buffer.from(contents),
+        });
+        writeContentToCache(file, contents);
       } catch (error) {
         logger.warn(
             `${this.optimizerName}: Unable to optimize ${file.path}`,
             {err: error.message || error});
       }
     }
-    callback(undefined, file);
+
+    callback(undefined, destFile);
   }
 }
 
@@ -144,12 +160,6 @@ export class JsTransform extends GenericOptimizeTransform {
         return content;
       }
 
-      const cachedFile = readFileFromCache(file);
-
-      if (cachedFile != null && cachedFile.path) {
-        return cachedFile.contents!.toString();
-      }
-
       let transformModulesToAmd: boolean|'auto' = false;
 
       if (jsOptions.transformModulesToAmd) {
@@ -164,7 +174,7 @@ export class JsTransform extends GenericOptimizeTransform {
         }
       }
 
-      const result = jsTransform(content, {
+      return jsTransform(content, {
         compile: getCompileTarget(file, jsOptions),
         externalHelpers: true,
         minify: shouldMinifyFile(file),
@@ -173,10 +183,6 @@ export class JsTransform extends GenericOptimizeTransform {
         rootDir: options.rootDir,
         transformModulesToAmd,
       });
-
-      writeContentToCache(file, result);
-
-      return result;
     };
 
     super('js-transform', transformer);
